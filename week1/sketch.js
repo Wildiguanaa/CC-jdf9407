@@ -29,7 +29,8 @@ const quotes = [
 let current = [];
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  // createCanvas(windowWidth, windowHeight);
+  createCanvas(400, 400);
   // Seed with millis() so each page load gives a different quote.
   randomSeed(millis());
   textSize(32);
