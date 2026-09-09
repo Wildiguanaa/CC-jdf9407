@@ -2,14 +2,25 @@
 // this is the only part of the file you need to edit!
 
 const quotes = [
-  { text: "the intersection of programming, design, and art", source: "Scott" },
-  { text: "a chance for code to be wrong", source: "Sara" },
-  { text: "surprise, exploration, and aesthetic exploration", source: "Sally" },
-  { text: "process over results", source: "Sam" },
-  { text: "form over function", source: "Sean" },
-  { text: "iterative and experimental", source: "Scooby" },
-  { text: "a community of practice", source: "Seth" },
-  { text: "an opportunity to stick it to the man", source: "Shifty-eyed Susan" }
+  { text: "[To] create something beautiful instead of something functional.", source: "Valerie" },
+  { text: "[Using] software, code and computational processes to be expressive or to create art forms.", source: "She Codes" },
+  { text: "making our own interactive digital artworks", source: "Luke Meeken" },
+  { text: "a rapidly expanding domain for both artistic expression and computational education.", source: "Andrew M Mcnutt" },
+  { text: "a growing artistic field that uses computer software as a medium to develop original creative expression.", source: "Freya Alexander" },
+  { text: "to edit, copy, enhance, manipulate, transform, and combine visuals in ways not imaginable using traditional processes", source: "Andrew Richardson" },
+  { text: "asking... whether code is a paint brush or a calculator, and frustratingly the answer appears to be both.", source: "Joe Fabisevich" },
+  { text: "a world of imagination and problem-solving that’s every bit as inventive as painting on a canvas", source: "Simpson Creative" },
+  { text: "the intersection of creativity and technology", source: "Creative Code Art" },
+  { text: "merges logic and art by using programming languages to create visual art and interactive installations.", source: "Kaiwalya Jadhav" }
+
+  { text: "a means to manipulate, communicate through, use, and appreciate art through code", source: "Joanna Solomon" },
+  { text: "artistically-centered computer science", source: "Joanna Solomon" },
+  { text: "visual/descriptive programming and its explorations", source: "Joanna Solomon" },
+  { text: "a means of technological communication in a creative practice", source: "Joanna Solomon" },
+  { text: "design oriented computation", source: "Joanna Solomon" },
+  { text: "a cross-pollination of art and technology", source: "Joanna Solomon" },
+  { text: "its own creative medium", source: "Joanna Solomon" },
+  { text: "an instructional, rythmic, and integrative means of capturing art", source: "Joanna Solomon" }
 ];
 // no need to edit anything below this line! 
 // if you have made an error, you can check your history to see what might have gone wrong
