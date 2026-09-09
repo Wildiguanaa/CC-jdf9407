@@ -3,7 +3,7 @@
 
 const quotes = [
   { text: "[To] create something beautiful instead of something functional.", source: "Valerie from Medium" },
-  { text: "[Using] software, code and computational processes / to be expressive or to create art forms.", source: "She Codes" },
+  { text: "[Using] software, code and computational processes to be expressive or to create art forms.", source: "She Codes" },
   { text: "making our own interactive digital artworks", source: "Luke Meeken" },
   { text: "a rapidly expanding domain for both artistic expression and computational education.", source: "Andrew M Mcnutt" },
   { text: "a growing artistic field that uses computer software as a medium to develop original creative expression.", source: "Freya Alexander" },
@@ -33,8 +33,8 @@ function setup() {
   createCanvas(400, 400);
   // Seed with millis() so each page load gives a different quote.
   randomSeed(millis());
-  textSize(24);
-  fill(10, 255, 10);
+  textSize(14);
+  fill(10, 200, 10);
   // calls the function to pick a quote
   pickQuote();
 }
