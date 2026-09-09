@@ -2,7 +2,7 @@
 // this is the only part of the file you need to edit!
 
 const quotes = [
-  { text: "[To] create something beautiful instead of something functional.", source: "Valerie" },
+  { text: "[To] create something beautiful instead of something functional.", source: "Valerie from Medium" },
   { text: "[Using] software, code and computational processes to be expressive or to create art forms.", source: "She Codes" },
   { text: "making our own interactive digital artworks", source: "Luke Meeken" },
   { text: "a rapidly expanding domain for both artistic expression and computational education.", source: "Andrew M Mcnutt" },
