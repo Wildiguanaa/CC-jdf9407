@@ -11,7 +11,7 @@ const quotes = [
   { text: "asking... whether code is a paint brush or a calculator, and frustratingly the answer appears to be both.", source: "Joe Fabisevich" },
   { text: "a world of imagination and problem-solving that’s every bit as inventive as painting on a canvas", source: "Simpson Creative" },
   { text: "the intersection of creativity and technology", source: "Creative Code Art" },
-  { text: "merges logic and art by using programming languages to create visual art and interactive installations.", source: "Kaiwalya Jadhav" }
+  { text: "merges logic and art by using programming languages to create visual art and interactive installations.", source: "Kaiwalya Jadhav" },
 
   { text: "a means to manipulate, communicate through, use, and appreciate art through code", source: "Joanna Solomon" },
   { text: "artistically-centered computer science", source: "Joanna Solomon" },
