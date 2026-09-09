@@ -33,7 +33,7 @@ function setup() {
   createCanvas(400, 400);
   // Seed with millis() so each page load gives a different quote.
   randomSeed(millis());
-  textSize(32);
+  textSize(24);
   fill(10, 255, 10);
   // calls the function to pick a quote
   pickQuote();
