@@ -7,15 +7,15 @@ let r = 45; // random variable works for rotation and size for all functions
 let colorshow = true; // boolean variable (true = color shows, false = black and white)
 
 function setup() {
-  createCanvas(100, 100);  
+  createCanvas(100, 100);  // canvas size
   // background(12,0,230); // blue background color
-  rectMode(CENTER);
+  rectMode(CENTER); // sets the origin to the middle
   colorMode(HSB, 360, 100, 100) // HSB stands for hue (0-360 in values), saturation (0-100 in numeric values), and brightness (0-100 in number values)
 }
 
 function draw() {
   colorMode(HSB, 360, 100, 100) // HSB stands for hue (0-360 in values), saturation (0-100 in numeric values), and brightness (0-100 in number values)
-
+ 
 
   fill(0, 0, 55); // text color 
   // text("p5.Polar Template used by Joanna. Drag mouse to change color, click any key to interchange rainbow and monochrome colors on the polar and grid ellipses, and click mouse just to randomly change the visual.", 110, 10, 130, 80); // Position text inside the 100px canvas width
@@ -23,21 +23,21 @@ function draw() {
   // Insert your drawing here
 
   // polar ellipse
-  push();
-  setCenter(width/2, height/2);
+  push(); // aka save; saves the current state of my drawing setting
+  setCenter(width/2, height/2); // changes the focus/anchor point of my canvas to the center of the screen
 
   if (colorshow) {
-    let polarcolor = (r*5) % 360;  
+    let polarcolor = (r*5) % 360;  // % is the remainder operator; it divides the first number by the second and returns the leftover remainder
     stroke(polarcolor,180,100);
   }
   else {
-    stroke(0,0,0);
+    stroke(0,0,0); // stroke sets the color used to draw lines, points, and the borders around shapes
     
   }
   noFill();
   rotate(r);
   polarEllipses(10, 10, 100, 25); // https://editor.p5js.org/melodyloveless/sketches/4rOr7DfJa
-  pop();
+  pop(); // aka restore; resets everything back to exactly how it was when i last called push()
 
   let startx=10; //starting x position
   let starty=10; //starting x position
@@ -56,7 +56,7 @@ function draw() {
     rotate(x*y*r);
     stroke(r);
 
-    if (!colorshow) {
+    if (!colorshow) { // the ! operator means NOT; it flips a boolean value to its exact opposite
       let hueValue = (x*20+y*3+r*12) % 360;
       fill(hueValue, 100, 100, r); // rainbow colors
     }
@@ -87,7 +87,7 @@ function mousePressed() {
 }
 
 function mouseDragged() {
-  r = map(mouseX, mouseY, width, 5, 40);
+  r = map(mouseX, mouseY, width, 5, 40); // map() function translates a number from its current range into a completely new range
   noStroke();
   fill(200,200); //adding color to the drag
   ellipse(mouseX, mouseY, 20); // https://docs.google.com/document/d/1pIEKKYwrDEGjKNYOve-6yeayMT8ZaW38qoUthIR4SfI/edit?tab=t.0
