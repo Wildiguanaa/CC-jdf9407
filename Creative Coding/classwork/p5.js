@@ -7,7 +7,9 @@ function setup() {
     rectMode(CENTER);
         for (i=0; i<5; i++) {
         for (j=0; j<5; j++) {
-        let r = random(-10,10);
+        // let r = random(-10,10);
+        rX[i] = random(-10,10);
+        rY[j] = random(-10,10);
         }
     }
 }
@@ -21,8 +23,8 @@ function draw() {
             let startingXposition = 100;
             let startingYposition = 100;
 
-            console.log(r)
-            rect(startingXposition + (i*space) +r,
+            // console.log(r)
+            rect(startingXposition + (i*space) +rX[i],
             startingYposition + (j*space), s);
         }
     }
