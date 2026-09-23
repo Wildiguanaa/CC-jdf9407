@@ -11,6 +11,14 @@ s
       <li><a href="./week1/">Week 1 notes</a></li>
       <li><a href="./assignment1/">Assignment 1: Generative Drawing</a></li>
       li><a href="./week1/readme.html">Assignment 1: Description</a></li>
+
+      <li><a href="./week1/index.html">Assignment 1 - Creative Coding is...</a></li>
+      <li><a href="./week1/readme.html">Assignment 1 - Description</a></li>
+      <li><a href="./week2_/index.html">Assignment 2 - Process Drawing</a></li>
+      <li><a href="./week2_/readme.html">Assignment 2 - Description</a></li>
+      <li><a href="./Part1HW_p5PolarTemplate/index.html">Assignment 3 - Iteration Generation Part 1</a></li>
+      <li><a href="./Part2HW_p5PolarTemplate/index.html">Assignment 3 - Iteration Generation Part 2</a></li>
+      
       ...
 ```
 You can simply copy the line above, replacing the directory name with the name of the folder you've just created, and the inner text with a description of the new activity.
