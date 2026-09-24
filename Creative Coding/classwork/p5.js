@@ -11,6 +11,7 @@ function setup() {
         rX[i] = random(-10,10);
         rY[j] = random(-10,10);
         }
+    myDrawing();
     }
 }
 function draw() {
@@ -33,3 +34,5 @@ function draw() {
 // noLoop();
 
 function mousePressed();
+
+// svg is a coordinate based drawing; defined by coordinates; it means when you stretch out an svg it does not get pixelated because it is not pixel bound, it is coordinate bound

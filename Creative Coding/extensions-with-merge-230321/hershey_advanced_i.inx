@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+  <_name>Hershey Advanced</_name>
+  <id>command.hershey_adv_i</id>
+  <dependency type="executable" location="extensions">hershey_advanced.py</dependency>
+
+<image>hta/inx_images/hta_logo.svg</image>
+
+<param name="tab" type="notebook">
+
+<page name="render" _gui-text="Render">
+
+<image>hta/inx_images/hta_render.svg</image>
+
+<image width="10" height="10">hta/inx_images/spacer_10px.svg</image>
+
+<hbox>
+<image width="40" height="10">hta/inx_images/spacer_10px.svg</image>
+
+    <param indent="0" name="font_option" type="enum" _gui-text="Font face: ">
+        <_item value="HersheySans1">Hershey Sans 1-stroke</_item>
+        <_item value="HersheySansMed">Hershey Sans medium</_item>
+
+        <_item value="HersheySerifMed">Hershey Serif medium</_item>
+        <_item value="HersheySerifMedItalic">Hershey Serif medium italic</_item>
+
+        <_item value="HersheySerifBold">Hershey Serif bold</_item>
+        <_item value="HersheySerifBoldItalic">Hershey Serif bold italic</_item>
+
+        <_item value="HersheyScript1">Hershey Script 1-stroke</_item>
+        <_item value="HersheyScriptMed">Hershey Script medium</_item>
+
+        <_item value="HersheyGothEnglish">Hershey Gothic English</_item>
+        <_item value="HersheyGothGerman">Hershey Gothic German</_item>
+        <_item value="HersheyGothItalian">Hershey Gothic Italian</_item>
+        
+        <!-- Block below this are derived from fonts licensed under SIL Open Font License -->
+        <_item value="EMSAllure">EMS Allure</_item>
+        <_item value="EMSBird">EMS Bird</_item>
+        <_item value="EMSBirdSwashCaps">EMS Bird Swash Caps</_item>
+        <_item value="EMSBrush">EMS Brush</_item>
+        <_item value="EMSCapitol">EMS Capitol</_item>
+
+        <_item value="EMSCasualHand">EMS Casual Hand</_item>
+        <_item value="EMSDecorousScript">EMS Decorous Script</_item>
+        <_item value="EMSDelight">EMS Delight</_item>
+        <_item value="EMSDelightSwashCaps">EMS Delight Swash Caps</_item>
+        <_item value="EMSElfin">EMS Elfin</_item>
+
+        <_item value="EMSFelix">EMS Felix</_item>
+        <_item value="EMSHerculean">EMS Herculean</_item>
+        <_item value="EMSInvite">EMS Invite</_item>
+        <_item value="EMSLeague">EMS League</_item>
+        <_item value="EMSLittlePrincess">EMS Little Princess</_item>
+
+        <_item value="EMSMistyNight">EMS Misty Night</_item>
+        <_item value="EMSNeato">EMS Neato</_item>
+        <_item value="EMSNixish">EMS Nixish</_item>
+        <_item value="EMSNixishItalic">EMS Nixish Italic</_item>
+        <_item value="EMSOsmotron">EMS Osmotron</_item>
+
+        <_item value="EMSPancakes">EMS Pancakes</_item>
+        <_item value="EMSPepita">EMS Pepita</_item>
+        <_item value="EMSQwandry">EMS Qwandry</_item>
+        <_item value="EMSReadability">EMS Readability</_item>
+        <_item value="EMSReadabilityItalic">EMS Readability Italic</_item>
+
+        <_item value="EMSSociety">EMS Society</_item>
+        <_item value="EMSSwiss">EMS Swiss</_item>
+        <_item value="EMSTech">EMS Tech</_item> 
+        <!-- Block above this are derived from fonts licensed under SIL Open Font License -->
+        <_item value="other">Other, selected below</_item> 
+      </param>
+
+</hbox>
+
+<param type="path" name="font_face" gui-text="Other SVG Font: " indent="1" mode="file" filetypes="svg"/>
+
+<image width="10" height="20">hta/inx_images/spacer_10px.svg</image>
+
+
+<hbox indent="0">
+<vbox indent="10">
+<param name="preserve_text" indent="0" type="boolean" _gui-text="Preserve original text" >false</param>
+</vbox>
+</hbox>
+
+
+
+<image width="10" height="10">hta/inx_images/spacer_10px.svg</image>
+<image>hta/inx_images/hta_hr.svg</image>
+<image width="10" height="10">hta/inx_images/spacer_10px.svg</image>
+
+<hbox>
+<image width="40" height="1">hta/inx_images/spacer_10px.svg</image>
+
+<spacer size="expand" />
+<_label>Version 5.2.1</_label>
+<image width="40" height="1">hta/inx_images/spacer_10px.svg</image>
+</hbox>
+
+</page>
+
+
+
+<page name="txt_defects" _gui-text="Defects">
+
+<image>hta/inx_images/hta_text.svg</image>
+
+<image width="10" height="5">hta/inx_images/spacer_10px.svg</image>
+
+
+<hbox indent="0">
+<image width="10" height="10">hta/inx_images/spacer_10px.svg</image>
+
+<vbox indent="2">
+<image width="10" height="40">hta/inx_images/spacer_10px.svg</image>
+<label appearance="header">Handwriting-like Defects:</label>
+<param  indent="2" name="enable_defects" type="boolean" _gui-text="Enable">false</param>
+</vbox>
+
+<vbox indent="2">
+<param name="leading_var" type="int" min="0" max="100" _gui-text="Line spacing:">15</param>
+<param name="baseline_var" type="int" min="0" max="100" _gui-text="Baseline jitter:">15</param>
+<param name="indent_var" type="int" min="0" max="100" _gui-text="Indent:">15</param>
+<param name="kern_var" type="int" min="0" max="100" _gui-text="Kerning:">15</param>
+<param name="size_var" type="int" min="0" max="100" _gui-text="Letter Size:">15</param>
+
+</vbox>
+<image width="10" height="10">hta/inx_images/spacer_10px.svg</image>
+
+</hbox>
+
+</page>
+
+
+<page name='txt_adjustments' _gui-text='Adjustments'>
+
+<image>hta/inx_images/hta_text_adj.svg</image>
+
+<image width="10" height="10">hta/inx_images/spacer_10px.svg</image>
+<hbox indent="2">
+<image width="10" height="10">hta/inx_images/spacer_10px.svg</image>
+
+<label indent="2" appearance="header">Spacing adjustment:</label>
+<vbox indent="2">
+<param name="letter_spacing" type="int" min="1" max="400"
+_gui-text="Letter (%): ">100</param>
+<param  name="word_spacing" type="int" min="1" max="600" 
+_gui-text="Word (%): ">100</param>
+</vbox>
+<image width="10" height="10">hta/inx_images/spacer_10px.svg</image>
+
+</hbox>
+
+<param name="rand_seed" type="int" gui-hidden="true">1</param>
+
+</page>
+
+
+
+<page name="utilities" _gui-text="Utilities">
+
+<image>hta/inx_images/hta_utility.svg</image>
+<image width="10" height="10">hta/inx_images/spacer_10px.svg</image>
+
+<hbox >
+<vbox>
+  <param indent="5" name="util_mode" type="enum" _gui-text="Action:">
+    <_item value="font_table" >Generate font table</_item> 
+    <_item value="glyph_table" >Generate glyph table in selected font</_item> 
+  </param>
+
+<image width="6" height="10">hta/inx_images/spacer_10px.svg</image>
+<label indent="3" >Sample text for font table:</label>
+
+</vbox>
+</hbox>
+
+<param indent="2" name="sample_text" type="string" _gui-text="">
+The Quick Brown Fox Jumps Over a Lazy Dog</param>
+
+</page>
+
+
+<page name="help" _gui-text="About">
+
+<image>hta/inx_images/hta_about.svg</image>
+
+<label indent="2" xml:space="preserve">
+Hershey Advanced renders all text (or selected text) in your document using specialized "stroke" or "engraving" fonts designed for plotters. 
+
+Whereas regular "outline" fonts (e.g., TrueType, PostScript) work by filling in the region inside an invisible outline, engraving fonts are composed only of individual lines or strokes; much like human handwriting.
+
+For a general introduction to stroke fonts and comprehensive usage instructions for this software, please refer to the Hershey Advanced and AxiDraw Merge User Guide.
+</label>
+<label indent="2" appearance="header">
+For an intermediate-length help file, click Apply with this tab selected.
+</label>
+</page>
+
+
+</param>
+
+  <effect needs-live-preview="true">
+    <object-type>all</object-type>
+    <effects-menu>
+       <submenu _name="iDraw Utilities"/>
+    </effects-menu>
+  </effect>
+    <script>
+      <command reldir="extensions" interpreter="python">hershey_advanced.py</command>
+    </script>
+</inkscape-extension>
