@@ -1,5 +1,7 @@
 // Notes from class on wed. sep. 23, 2026
 
+console.log("test");
+
 var r; //global variable
 
 function setup() {
