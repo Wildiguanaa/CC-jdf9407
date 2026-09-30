@@ -2,26 +2,40 @@
 
 p5.disableFriendlyErrors = true; 
 let bDoExportSvg = false; 
-// if using randomness, experiment w/ myRandomSeed to see different versions (or iterations) of your sketch
-let myRandomSeed = 12345; 
+// if using randomness, 
+// as I am!,
+// experiment w/ myRandomSeed to see different versions (or iterations) 
+// of your sketch
+let myRandomSeed = 3201; 
 let regenerateButton, exportSvgButton; 
 
-// canvas size
-const DPI = 70; // dots per inch
-const PAGE_W = 8.5*DPI; 
-const PAGE_H = 11*DPI;
+let colorshow = true; // boolean variable (true = color shows, false = black and white)
 
-//------------------------------------------------------------
+
 function setup() {
-  createCanvas(PAGE_W, PAGE_H);
+  // canvas size
+  createCanvas(220, 220);
   UI();
   noFill();
   // Set the SVG group by stroke color to `true`, so that strokes 
   // of the same color are grouped together in the SVG file. 
   setSvgGroupByStrokeColor(true); 
+  colorMode(HSB, 360, 100, 100) // HSB stands for hue (0-360 in values), saturation (0-100 in numeric values), and brightness (0-100 in number values)
+}
 }
 
 function draw(){
+  colorMode(HSB, 360, 100, 100) // HSB stands for hue (0-360 in values), saturation (0-100 in numeric values), and brightness (0-100 in number values)
+
+  push();
+  setCenter(width/2, height/2);
+  rotate(myRandomSeed);
+  polarEllipses(10, 10, 100, 25); // https://editor.p5js.org/melodyloveless/sketches/4rOr7DfJa
+  polarLine(5, 90, 2);
+  polarHeptagon(11,2,3);
+  pop();
+
+
   clear();
   randomSeed(myRandomSeed); 
   background(255); 
@@ -73,6 +87,23 @@ function UI() {
   exportSvgButton = createButton('Export SVG');
   exportSvgButton.position(120, height);
   exportSvgButton.mousePressed(initiateSvgExport); // run initiateSvgExport() when pressed
+}
+
+
+
+function keyPressed(){ // press any key to toggle color on/off
+  colorshow = !colorshow;
+}
+
+function mousePressed() {
+  myRandomSeed=random(10,80); // https://docs.google.com/document/d/1pIEKKYwrDEGjKNYOve-6yeayMT8ZaW38qoUthIR4SfI/edit?tab=t.0
+}
+
+function mouseDragged() {
+  myRandomSeed = map(mouseX, mouseY, width, 5, 40);
+  noStroke();
+  fill(200,200); //adding color to the drag
+  ellipse(mouseX, mouseY, 20); // https://docs.google.com/document/d/1pIEKKYwrDEGjKNYOve-6yeayMT8ZaW38qoUthIR4SfI/edit?tab=t.0
 }
 
 /*
