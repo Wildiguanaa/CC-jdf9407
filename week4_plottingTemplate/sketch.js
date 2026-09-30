@@ -113,6 +113,14 @@ function mouseDragged() {
   ellipse(mouseX - width/2, mouseY - height/2, 20); // had to subtract width and height to make the circle and mouse allign https://docs.google.com/document/d/1pIEKKYwrDEGjKNYOve-6yeayMT8ZaW38qoUthIR4SfI/edit?tab=t.0
 }
 
+function keyPressed() {
+  if (key === "") { 
+    // === means two values are equal in both value and data type
+    // " " this is not an empty string, but a string containing a space. in p5.js/javascript is a text string containing a single space character. In p5.js, and in this function it tests if the user pressed the spacebar key on their keyboard  
+    colorshow = !colorshow;
+  }
+}
+
 /* This template uses the following sketch as a starting point: 
 https://editor.p5js.org/golan/sketches/LRTXmDg2q
 
