@@ -2,7 +2,7 @@
 
 p5.disableFriendlyErrors = true; 
 // p5.plotSvg.js
-let bDoExportSvg = false; 
+let bDoExportSvg = false; // declaring a boolean flag to track when an export should happen
 // if using randomness, 
 // as I am!,
 // experiment w/ myRandomSeed to see different versions (or iterations) 
@@ -29,6 +29,8 @@ function draw(){
   clear();
   randomSeed(JoannaRandomSeed); 
   background(244); // something i learned: Calling `background()` after drawing shapes immediately erases them before the frame is rendered on screen
+  
+  
   colorMode(HSB, 360, 100, 20) // HSB stands for hue (0-360 in values), saturation (0-100 in numeric values), and brightness (0-100 in number values)
  
   if (colorshow) {
@@ -109,7 +111,8 @@ function mouseDragged() {
 }
 
 function keyPressed() {
-  if (key === " ") { 
+  if (key === "s") { 
+    bDoExportSvg = true;
     // === means two values are equal in both value and data type
     // " " this is not an empty string, but a string containing a space. in p5.js/javascript is a text string containing a single space character. In p5.js, and in this function it tests if the user pressed the spacebar key on their keyboard  
     colorshow = !colorshow;
