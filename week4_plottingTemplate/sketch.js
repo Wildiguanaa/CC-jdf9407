@@ -22,7 +22,7 @@ function setup() {
   setSvgGroupByStrokeColor(true); 
   colorMode(HSB, 360, 100, 100) // HSB stands for hue (0-360 in values), saturation (0-100 in numeric values), and brightness (0-100 in number values)
 }
-}
+
 
 function draw(){
   colorMode(HSB, 360, 100, 100) // HSB stands for hue (0-360 in values), saturation (0-100 in numeric values), and brightness (0-100 in number values)
