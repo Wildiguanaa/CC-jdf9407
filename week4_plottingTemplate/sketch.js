@@ -6,7 +6,7 @@ let bDoExportSvg = false;
 // as I am!,
 // experiment w/ myRandomSeed to see different versions (or iterations) 
 // of your sketch
-let myRandomSeed = 3201; 
+let JoannaRandomSeed = 3201; 
 let regenerateButton, exportSvgButton; 
 
 let colorshow = true; // boolean variable (true = color shows, false = black and white)
@@ -29,7 +29,7 @@ function draw(){
 
   push();
   setCenter(width/2, height/2);
-  rotate(myRandomSeed);
+  rotate(JoannaRandomSeed);
   polarEllipses(10, 10, 100, 25); // https://editor.p5js.org/melodyloveless/sketches/4rOr7DfJa
   polarLine(5, 90, 2);
   polarHeptagon(11,2,3);
@@ -37,11 +37,11 @@ function draw(){
 
 
   clear();
-  randomSeed(myRandomSeed); 
+  randomSeed(JoannaRandomSeed); 
   background(255); 
   
   if (bDoExportSvg == true){
-    beginRecordSvg(this, "myOutput_" + month() + day() + year() + "_" + myRandomSeed + ".svg");
+    beginRecordSvg(this, "myOutput_" + month() + day() + year() + "_" + JoannaRandomSeed + ".svg");
   }
 
   // define your drawing below
@@ -71,7 +71,7 @@ function myDrawing() {
 
 // Make a new random seed when the "Regenerate" button is pressed
 function regenerate(){
-  myRandomSeed = round(millis()); 
+  JoannaRandomSeed = round(millis()); 
 }
 
 // Set the SVG to be exported when the "Export SVG" button is pressed
@@ -96,11 +96,11 @@ function keyPressed(){ // press any key to toggle color on/off
 }
 
 function mousePressed() {
-  myRandomSeed=random(10,80); // https://docs.google.com/document/d/1pIEKKYwrDEGjKNYOve-6yeayMT8ZaW38qoUthIR4SfI/edit?tab=t.0
+  JoannaRandomSeed=random(10,80); // https://docs.google.com/document/d/1pIEKKYwrDEGjKNYOve-6yeayMT8ZaW38qoUthIR4SfI/edit?tab=t.0
 }
 
 function mouseDragged() {
-  myRandomSeed = map(mouseX, mouseY, width, 5, 40);
+  JoannaRandomSeed = map(mouseX, mouseY, width, 5, 40);
   noStroke();
   fill(200,200); //adding color to the drag
   ellipse(mouseX, mouseY, 20); // https://docs.google.com/document/d/1pIEKKYwrDEGjKNYOve-6yeayMT8ZaW38qoUthIR4SfI/edit?tab=t.0
