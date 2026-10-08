@@ -63,7 +63,8 @@ function draw(){
   polarEllipses(10, 10, 10, 25); // https://editor.p5js.org/melodyloveless/sketches/4rOr7DfJa
   polarLine(5, 90, 2);
   polarHeptagon(11,2,3);
-  
+  // olarHeptagon(110,2,3);
+  polarLine(50, 9, 2);
 
 
   pop();
