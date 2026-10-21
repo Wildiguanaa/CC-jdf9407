@@ -11,7 +11,7 @@ let drag = 0; //making this global variable so that if i drag a pupil or iris it
 function draw() {
   background(34,0,0);
   // fill(0);
-  text("Week 5/6 Sketch", width/20, height/12);
+  text("Week 6 Sketch", width/20, height/12);
  
 
 
