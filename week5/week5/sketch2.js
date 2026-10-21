@@ -180,6 +180,8 @@ function draw() {
 
 //   }
   
+
+}
   function meltedeyeball(x) {
     fill(200);
     noStroke();
@@ -204,8 +206,6 @@ function draw() {
     } 
   endShape(CLOSE); // last point connects to first https://p5js.org/reference/p5/endShape/
  }
-}
-
   // setCenter(width/2, height/2); 
   // noFill();
   // fill("red");
