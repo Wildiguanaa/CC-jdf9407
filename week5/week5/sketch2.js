@@ -189,7 +189,7 @@ function draw() {
       let xpoint = cos(i)*r; // cos and sin give a point on the circle
       let ypoint = sin(i)*r;
     }
-
+// checking whether the point faces the direction of the melt pos = hell yea
     let direction = cos(i)*meltx + sin(i)*melty;
     let pulled = max(0,direction);
 
