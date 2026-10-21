@@ -88,10 +88,6 @@ function draw() {
   let veinsR = 24; //number of eye veins
   let anglechangeR = 360 / veinsR; // 360 degrees split into 24 veins (15 degrees each)
   
-  //attempt at a shadow for eyeballs
-  noStroke();
-  fill(0,0,0,80);
-  ellipse(width/$+6,height/2+6, eyeballsize);
 
   for (let i=0; i<veinsR; i++) {
     // let angle = (2/veins) *i;
@@ -128,6 +124,12 @@ function draw() {
   ellipse(15, 0, pupilsizeR); //(15,0,20)
   pop();
 
+    //attempt at a shadow for eyeballs
+  noStroke();
+  fill(0,0,0,80);
+  // ellipse(width/$+6,height/2+6, eyeballsize);
+  ellipse(width/4 + 6, height/2 + 6, eyeballsize); 
+  ellipse(width/2 + 6, height/2 + 6, eyeballsize);
 
 // eye lids?? or an attempt at them
 

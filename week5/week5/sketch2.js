@@ -127,7 +127,9 @@ function draw() {
   //attempt at a shadow for eyeballs
   noStroke();
   fill(0,0,0,80);
-  ellipse(width/$+6,height/2+6, eyeballsize);
+  // ellipse(width/$+6,height/2+6, eyeballsize);
+  ellipse(width/4 + 6, height/2 + 6, eyeballsize); 
+  ellipse(width/2 + 6, height/2 + 6, eyeballsize);
 
 // eye lids?? or an attempt at them
 
