@@ -125,22 +125,30 @@ function draw() {
     pop(); // restore
 
   // pupil dilates/increases diameter by the minute 0-59
-  let currentminuteR = minute();
-  randomSeed(currentminuteR);
-  let pupilsizeR = random(10, 35);
-  pupilsizechangeright = lerp(pupilsizechangeright, pupilsizeR, 0.05);
+  // let currentminuteR = minute();
+  // randomSeed(currentminuteR);
+  // let 
+  // 
 
 
-  // mapping seconds (0 to 60 seconds) to rotation degrees (0 to 360 degrees)
-  let eyeangleR = map(second(), 0, 60, 0, 360);
+  // /
+  // 
 
   // pupil and iris movement
   push(); 
-  angleMode(DEGREES); // degrees (0 to 360)
+  // angleMode(DEGREES); // degrees (0 to 360)
+  randomSeed(minute());
+  let pupilsizeR = random(10, 35);
+  pupilsizechangeright = lerp(pupilsizechangeright, pupilsizeR, 0.05);
+ 
+// mapping seconds (0 to 60 seconds) to rotation degrees (0 to 360 degrees)
+  let eyeangleR = map(second(), 0, 60, 0, 360);
+ 
   translate(width/4 + meltx*15, height/2+melty*15); //origin at eye center
   rotate(eyeangleR); // rotating the coordinates with time
+  noStroke();
 
-  // iris
+   // iris
   fill("green");
   ellipse(15, 0, 70); // (15,0,70)
 
@@ -151,34 +159,34 @@ function draw() {
 
 
 
-// eye lids?? or an attempt at them
+// // eye lids?? or an attempt at them
 
-push();
-fill(120,100,120); //just wanted to match background color
-noStroke();
+// push();
+// fill(120,100,120); //just wanted to match background color
+// noStroke();
 
 
-// top eye lid
-arc(width/4, height/2.15, eyeballsize, eyeballsize, 180, 360) //https://beta.p5js.org/reference/p5/arc/
-stroke(1);
-arc(width/2, height/2, eyeballsize+1, eyeballsize+11, 185, 355) //https://beta.p5js.org/reference/p5/arc/
-// arc(x, y, w, h, start, stop, [mode], [detail])
+// // top eye lid
+// arc(width/4, height/2.15, eyeballsize, eyeballsize, 180, 360) //https://beta.p5js.org/reference/p5/arc/
+// stroke(1);
+// arc(width/2, height/2, eyeballsize+1, eyeballsize+11, 185, 355) //https://beta.p5js.org/reference/p5/arc/
+// // arc(x, y, w, h, start, stop, [mode], [detail])
 
-}
+// }
 
-  // attempt at making the pupil and iris move organically with a mouse drag
-  function mouseDragged() { //https://p5js.org/reference/p5/mouseDragged/ 
-    drag +=5; // increases time when dragging
+//   // attempt at making the pupil and iris move organically with a mouse drag
+//   function mouseDragged() { //https://p5js.org/reference/p5/mouseDragged/ 
+//     drag +=5; // increases time when dragging
 
-  }
+//   }
   
   function meltedeyeball(x) {
     fill(200);
     noStroke();
-    startshape();
-    for (let i=0; i<360; i+=5) {
+    beginshape(); // will begin to start drawing a custom shape
+    for (let i=0; i<360; i+=5) { // waling in a circle in 5 degree each part
       let r = eyeballsize/2;
-      let xpoint = cos(i)*r;
+      let xpoint = cos(i)*r; // cos and sin give a point on the circle
       let ypoint = sin(i)*r;
     }
 
