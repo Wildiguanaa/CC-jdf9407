@@ -6,11 +6,6 @@ function setup() {
 
 let drag = 0; //making this global variable so that if i drag a pupil or iris it might break the timing and act organically in response
 
-//attempt at a shadow for eyeballs
-noStroke();
-fill(0,0,0,80);
-ellipse(width/$+6,height/2+6, eyeballsize);
-
 
 function draw() {
   background(34,0,0);
@@ -93,6 +88,11 @@ function draw() {
   let veinsR = 24; //number of eye veins
   let anglechangeR = 360 / veinsR; // 360 degrees split into 24 veins (15 degrees each)
   
+  //attempt at a shadow for eyeballs
+  noStroke();
+  fill(0,0,0,80);
+  ellipse(width/$+6,height/2+6, eyeballsize);
+
   for (let i=0; i<veinsR; i++) {
     // let angle = (2/veins) *i;
     let inRadius = 20;
