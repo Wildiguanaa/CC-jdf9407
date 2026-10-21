@@ -23,16 +23,39 @@ function draw() {
 
   // eyeball swells/increases diameter by the hour 0-23
   let currenthour = hour();
-  let eyeballsize = map(currenthour, 0, 23, 100, 180); // map(value, low1, high1, low2, high2) or i can think about it as map(value, start1, stop1, start2, stop2, [withinBounds])
-  // map 0-59 seconds are set to 0-1 so the eyes can melt over each minute
-  let melteach = map(second(), 0, 59, 0, 1);
+  eyeballsize = map(currenthour, 0, 23, 100, 180); // map(value, low1, high1, low2, high2) or i can think about it as map(value, start1, stop1, start2, stop2, [withinBounds])
   
-  // lerp move only 5 percent in the designated direction every frame smoothly
-  melt = lerp(melt, melteach, 0.05);
+  // the melt goes where
+  let reachx = 0;
+  let reachy = 0.4;
+  if (mouseIsPressed) {
+    reachx = (mouseX - width/2) / (width/2); // mouse position to -1 to 1
+    reachy = (mouseY - height/2) / (height/2);
+  }
+  
+  // lerp move 5 percent toward the end number each frame 
+  meltx = lerp(meltx, reachx, 0.05);
+  melty = lerp(melty, reachy, 0.05);
+  
+    //attempt at a shadow for eyeballs
+  noStroke();
+  fill(0,0,0,80);
+  // ellipse(width/$+6,height/2+6, eyeballsize);
+  ellipse(width/4 + 6, height/2 + 6, eyeballsize); 
+  ellipse(width/2 + 6, height/2 + 6, eyeballsize);
+  
+  // map 0-59 seconds are set to 0-1 so the eyes can melt over each minute
+  // let melteach = map(second(), 0, 59, 0, 1);
+  
+  // // lerp move only 5 percent in the designated direction every frame smoothly
+  // melt = lerp(melt, melteach, 0.05);
 
-  // easing making it start slower and then speed up at the end
-  let ease = melt*melt;
-  let stretch = ease*40; // eyeball stretches up to 40 units (is it px?) taller
+  // // easing making it start slower and then speed up at the end
+  // let ease = melt*melt;
+  // let stretch = ease*40; // eyeball stretches up to 40 units (is it px?) taller
+
+
+
 
   // LEFT eye
 
@@ -137,12 +160,7 @@ function draw() {
   ellipse(15, 0, pupilsizeR); //(15,0,20)
   pop();
 
-  //attempt at a shadow for eyeballs
-  noStroke();
-  fill(0,0,0,80);
-  // ellipse(width/$+6,height/2+6, eyeballsize);
-  ellipse(width/4 + 6, height/2 + 6, eyeballsize); 
-  ellipse(width/2 + 6, height/2 + 6, eyeballsize);
+
 
 // eye lids?? or an attempt at them
 
