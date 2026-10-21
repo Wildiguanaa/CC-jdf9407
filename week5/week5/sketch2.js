@@ -144,7 +144,7 @@ function draw() {
 // mapping seconds (0 to 60 seconds) to rotation degrees (0 to 360 degrees)
   let eyeangleR = map(second(), 0, 60, 0, 360);
  
-  translate(width/4 + meltx*15, height/2+melty*15); //origin at eye center
+  translate(width/2 + meltx*15, height/2+melty*15); //origin at eye center
   rotate(eyeangleR); // rotating the coordinates with time
   noStroke();
 
