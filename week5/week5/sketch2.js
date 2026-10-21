@@ -1,12 +1,17 @@
 function setup() {
   let canvas = createCanvas(440, 440);
   rectMode(CENTER);
+  angleMode(DEGREES);
   canvas.parent('week5-sketch'); // do not delete - links to your index.html pages (description)
 }
 
-let drag = 0; //making this global variable so that if i drag a pupil or iris it might break the timing and act organically in response
-
-
+// let drag = 0; //making this global variable so that if i drag a pupil or iris it might break the timing and act organically in response
+// let melt = 0; // which will be how melted the eyes are with a range of 0-1
+let eyeballsize = 100; //making this global so the melt function can see it
+let meltx = 0; //melt direction: -1 left, 1 right
+let melty = 0.4; //-1 up, 1 down (0.4 = is a small default droop)
+let pupilsizechangeleft = 20; //pupil sizes changing slowly
+let pupilsizechangeright = 20; 
 
 function draw() {
   background(34,0,0);
@@ -19,13 +24,21 @@ function draw() {
   // eyeball swells/increases diameter by the hour 0-23
   let currenthour = hour();
   let eyeballsize = map(currenthour, 0, 23, 100, 180); // map(value, low1, high1, low2, high2) or i can think about it as map(value, start1, stop1, start2, stop2, [withinBounds])
+  // map 0-59 seconds are set to 0-1 so the eyes can melt over each minute
+  let melteach = map(second(), 0, 59, 0, 1);
   
-  
+  // lerp move only 5 percent in the designated direction every frame smoothly
+  melt = lerp(melt, melteach, 0.05);
+
+  // easing making it start slower and then speed up at the end
+  let ease = melt*melt;
+  let stretch = ease*40; // eyeball stretches up to 40 units (is it px?) taller
+
   // LEFT eye
 
-  // eyeball shape
+  // eyeball shape 
   fill(200);
-  ellipse(width/4, height/2, eyeballsize);
+  ellipse(width/4, height/2, eyeballsize, eyeballsize+stretch);
 
   // eye veins 
   push(); 
@@ -77,7 +90,7 @@ function draw() {
 
   // eyeball shape
   fill(200);
-  ellipse(width/2, height/2, eyeballsize);
+  ellipse(width/2, height/2, eyeballsize, eyeballsize+stretch);
 
   // eye veins 
   push(); 
@@ -136,7 +149,7 @@ function draw() {
 push();
 fill(120,100,120); //just wanted to match background color
 noStroke();
-angleMode(DEGREES);
+
 
 // top eye lid
 arc(width/4, height/2.15, eyeballsize, eyeballsize, 180, 360) //https://beta.p5js.org/reference/p5/arc/
