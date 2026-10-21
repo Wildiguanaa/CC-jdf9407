@@ -43,7 +43,7 @@ function draw() {
   // ellipse(width/$+6,height/2+6, eyeballsize);
   ellipse(width/4 + 6, height/2 + 6, eyeballsize); 
   ellipse(width/2 + 6, height/2 + 6, eyeballsize);
-  
+
   // map 0-59 seconds are set to 0-1 so the eyes can melt over each minute
   // let melteach = map(second(), 0, 59, 0, 1);
   
@@ -88,15 +88,18 @@ function draw() {
   // pupil and iris movement
   push(); 
   // // pupil dilates/increases diameter by the minute 0-59
-  let currentminuteL = (minute()+ drag%60); //adding drag to the minute (60 seconds)
+  // let currentminuteL = (minute()+ drag%60); //adding drag to the minute (60 seconds)
+  
+  let currentminuteL = minute();
   randomSeed(currentminuteL);
   let pupilsizeL = random(10, 35);
+  pupilsizechangeleft = lerp(pupilsizechangeleft, pupilsizeL, 0.05);
 
   // mapping seconds (0 to 60 seconds) to rotation degrees (0 to 360 degrees)
   let eyeangleL = map(second() + drag, 0, 60, 0, 360);
 
   angleMode(DEGREES); // degrees (0 to 360)
-  translate(width/4, height/2); //origin at eye center
+  translate(width/4 + meltx*15, height/2+melty*15); //origin at eye center
   rotate(eyeangleL); // rotating the coordinates with time
 
   // iris
@@ -105,7 +108,7 @@ function draw() {
 
   // pupil 
   fill("black");
-  ellipse(15, 0, pupilsizeL); //(15,0,20)
+  ellipse(15, 0, pupilsizechangeleft); //(15,0,20)
   pop();
  
 
@@ -141,6 +144,8 @@ function draw() {
   let currentminuteR = minute();
   randomSeed(currentminuteR);
   let pupilsizeR = random(10, 35);
+  pupilsizechangeright = lerp(pupilsizechangeright, pupilsizeR, 0.05);
+
 
   // mapping seconds (0 to 60 seconds) to rotation degrees (0 to 360 degrees)
   let eyeangleR = map(second(), 0, 60, 0, 360);
@@ -148,7 +153,7 @@ function draw() {
   // pupil and iris movement
   push(); 
   angleMode(DEGREES); // degrees (0 to 360)
-  translate(width/2, height/2); //origin at eye center
+  translate(width/4 + meltx*15, height/2+melty*15); //origin at eye center
   rotate(eyeangleR); // rotating the coordinates with time
 
   // iris
@@ -157,7 +162,7 @@ function draw() {
 
   // pupil 
   fill("black");
-  ellipse(15, 0, pupilsizeR); //(15,0,20)
+  ellipse(15, 0, pupilsizechangeright); //(15,0,20)
   pop();
 
 
