@@ -1,7 +1,7 @@
 function setup() {
   let canvas = createCanvas(440, 440);
   rectMode(CENTER);
-  angleMode(DEGREES);
+  angleMode(DEGREES); // sin/cos/rotate use degrees
   canvas.parent('week5-sketch'); // do not delete - links to your index.html pages (description)
 }
 
@@ -18,9 +18,6 @@ function draw() {
   // fill(0);
   text("Week 6 Sketch", width/20, height/12);
  
-
-
-
   // eyeball swells/increases diameter by the hour 0-23
   let currenthour = hour();
   eyeballsize = map(currenthour, 0, 23, 100, 180); // map(value, low1, high1, low2, high2) or i can think about it as map(value, start1, stop1, start2, stop2, [withinBounds])
@@ -28,60 +25,45 @@ function draw() {
   // the melt goes where
   let reachx = 0;
   let reachy = 0.4;
-  if (mouseIsPressed) {
+  if (mouseIsPressed) { // this is true while the mouse is held down
     reachx = (mouseX - width/2) / (width/2); // mouse position to -1 to 1
     reachy = (mouseY - height/2) / (height/2);
   }
   
-  // lerp move 5 percent toward the end number each frame 
+  // lerp move 5 percent toward the end number each frame in smoothly
   meltx = lerp(meltx, reachx, 0.05);
   melty = lerp(melty, reachy, 0.05);
   
-    //attempt at a shadow for eyeballs
+  //attempt at a shadow for eyeballs
   noStroke();
   fill(0,0,0,80);
   // ellipse(width/$+6,height/2+6, eyeballsize);
   ellipse(width/4 + 6, height/2 + 6, eyeballsize); 
   ellipse(width/2 + 6, height/2 + 6, eyeballsize);
 
-  // map 0-59 seconds are set to 0-1 so the eyes can melt over each minute
-  // let melteach = map(second(), 0, 59, 0, 1);
-  
-  // // lerp move only 5 percent in the designated direction every frame smoothly
-  // melt = lerp(melt, melteach, 0.05);
-
-  // // easing making it start slower and then speed up at the end
-  // let ease = melt*melt;
-  // let stretch = ease*40; // eyeball stretches up to 40 units (is it px?) taller
-
-
 
 
   // LEFT eye
 
-  // eyeball shape 
-  fill(200);
-  ellipse(width/4, height/2, eyeballsize, eyeballsize+stretch);
+  meltedeyeball(width/4); 
+
+  // // eyeball shape 
+  // fill(200);
+  // ellipse(width/4, height/2, eyeballsize, eyeballsize+stretch);
 
   // eye veins 
   push(); 
-  angleMode(DEGREES); // degrees (0 to 360)
+  // angleMode(DEGREES); // degrees (0 to 360)
   translate(width/4, height/2); //origin at eye center
   stroke(100, 20, 20, 50); //transparent red
   strokeWeight(2); // gives line visible thickness
-
   let veinsL = 22; //number of eye veins
   let anglechangeL = 360 / veinsL; // 360 degrees split into 24 veins (15 degrees each)
-  
   for (let i=0; i<veinsL; i++) {
-    // let angle = (2/veinsL) *i;
-    let inRadius = 20;
-    let outRadius = eyeballsize; // veinsL will stay the same size as the eyeball
-
-    polarLine(200, inRadius, 40, outRadius); 
+    polarLine(200, 20, 40, eyeballsize/2); 
     noFill();
     polarEllipse(2, 20, 26, 40); 
-    rotate(anglechangeL); // Rotate coordinate grid by 15 degrees for the next vein 
+    rotate(anglechangeL); // Rotate coordinate grid by 15 degrees for the next vein  
     }
     pop(); // restore
   
@@ -90,18 +72,18 @@ function draw() {
   // // pupil dilates/increases diameter by the minute 0-59
   // let currentminuteL = (minute()+ drag%60); //adding drag to the minute (60 seconds)
   
-  let currentminuteL = minute();
-  randomSeed(currentminuteL);
+  // let currentminuteL = minute();
+  randomSeed(minute());
   let pupilsizeL = random(10, 35);
   pupilsizechangeleft = lerp(pupilsizechangeleft, pupilsizeL, 0.05);
 
   // mapping seconds (0 to 60 seconds) to rotation degrees (0 to 360 degrees)
-  let eyeangleL = map(second() + drag, 0, 60, 0, 360);
+  let eyeangleL = map(second(), 0, 60, 0, 360);
 
-  angleMode(DEGREES); // degrees (0 to 360)
-  translate(width/4 + meltx*15, height/2+melty*15); //origin at eye center
+  // angleMode(DEGREES); // degrees (0 to 360)
+  translate(width/4 + meltx*15, height/2+melty*15); // iris sliding towards melting
   rotate(eyeangleL); // rotating the coordinates with time
-
+  noStroke();
   // iris
   fill("green");
   ellipse(15, 0, 70); // (15,0,70)
@@ -114,13 +96,15 @@ function draw() {
 
   // RIGHT eye
 
-  // eyeball shape
-  fill(200);
-  ellipse(width/2, height/2, eyeballsize, eyeballsize+stretch);
+  meltedeyeball(width/2);
+
+  // // eyeball shape
+  // fill(200);
+  // ellipse(width/2, height/2, eyeballsize, eyeballsize+stretch);
 
   // eye veins 
   push(); 
-  angleMode(DEGREES); // degrees (0 to 360)
+  // angleMode(DEGREES); // degrees (0 to 360)
   translate(width/2, height/2); //origin at eye center
   stroke(100, 20, 20, 50); //transparent red
   strokeWeight(2); // gives line visible thickness
@@ -130,10 +114,10 @@ function draw() {
   
   for (let i=0; i<veinsR; i++) {
     // let angle = (2/veins) *i;
-    let inRadius = 20;
-    let outRadius = eyeballsize/2; // veins will stay the same size as the eyeball
+    // let inRadius = 20;
+    // let outRadius = eyeballsize/2; // veins will stay the same size as the eyeball
 
-    polarLine(200, inRadius, 40, outRadius); 
+    polarLine(200, 20, 40, eyeballsize/2); 
     noFill();
     polarEllipse(2, 20, 26, 40); 
     rotate(anglechangeR); // Rotate coordinate grid by 15 degrees for the next vein 
@@ -188,6 +172,27 @@ arc(width/2, height/2, eyeballsize+1, eyeballsize+11, 185, 355) //https://beta.p
 
   }
   
+  function meltedeyeball(x) {
+    fill(200);
+    noStroke();
+    startshape();
+    for (let i=0; i<360; i+=5) {
+      let r = eyeballsize/2;
+      let xpoint = cos(i)*r;
+      let ypoint = sin(i)*r;
+    }
+
+    let direction = cos(i)*meltx + sin(i)*melty;
+    let pulled = max(0,direction);
+
+    xpoint += meltx*pulled*75;
+    ypoint += melty*pulled*75;
+
+    ypoint += noise(i*0.1, frameCount*0.2)*10*pulled;
+
+  }
+  endShape(CLOSE);
+}
 
   // setCenter(width/2, height/2); 
   // noFill();
@@ -238,4 +243,16 @@ arc(width/2, height/2, eyeballsize+1, eyeballsize+11, 185, 355) //https://beta.p
   // remote: error: File MicrosoftEdge-154.0.4258.62.dmg is 391.32 MB; this exceeds GitHub's file size limit
   // find and delete it - deleted
   // dmg files never go into github repositories 
-  // They are what's known as a build artifact, the result of a compilation or build process 
+  // They are what's known as a build artifact, the result of a compilation or build process   // map 0-59 seconds are set to 0-1 so the eyes can melt over each minute
+  // let melteach = map(second(), 0, 59, 0, 1);
+  
+  // // lerp move only 5 percent in the designated direction every frame smoothly
+  // melt = lerp(melt, melteach, 0.05);
+
+  // // easing making it start slower and then speed up at the end
+  // let ease = melt*melt;
+  // let stretch = ease*40; // eyeball stretches up to 40 units (is it px?) taller
+
+    // // // let angle = (2/veinsL) *i;
+    // let inRadius = 20;
+    // let outRadius = eyeballsize; // veinsL will stay the same size as the eyeball
