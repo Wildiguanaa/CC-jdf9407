@@ -193,13 +193,16 @@ function draw() {
     let direction = cos(i)*meltx + sin(i)*melty;
     let pulled = max(0,direction); // pls ignore points that do not face that way
 
+    // stretcht he points facing the melts direction
     xpoint += meltx*pulled*75;
     ypoint += melty*pulled*75;
 
+    // using noise to kind of smooth the randomness 
     ypoint += noise(i*0.1, frameCount*0.2)*10*pulled;
 
+    vertex(x + xpoint, height/2 + ypoint);
   }
-  endShape(CLOSE);
+  endShape(CLOSE); // last point connects to first
 }
 
   // setCenter(width/2, height/2); 
