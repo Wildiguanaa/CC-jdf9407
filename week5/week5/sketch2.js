@@ -31,7 +31,7 @@ function draw() {
   }
   
   // lerp move 5 percent toward the end number each frame in smoothly
-  meltx = lerp(meltx, reachx, 0.05);
+  meltx = lerp(meltx, reachx, 0.05); // https://p5js.org/reference/p5/lerp/
   melty = lerp(melty, reachy, 0.05);
   
   //attempt at a shadow for eyeballs
@@ -183,10 +183,10 @@ function draw() {
   function meltedeyeball(x) {
     fill(200);
     noStroke();
-    beginshape(); // will begin to start drawing a custom shape
+    beginShape(); // will begin to start drawing a custom shape https://p5js.org/reference/p5/beginShape/
     for (let i=0; i<360; i+=5) { // waling in a circle in 5 degree each part
       let r = eyeballsize/2;
-      let xpoint = cos(i)*r; // cos and sin give a point on the circle
+      let xpoint = cos(i)*r; // cos and sin give a point on the circle https://p5js.org/reference/p5/cos/ and 
       let ypoint = sin(i)*r;
     }
 // checking whether the point faces the direction of the melt pos = hell yea
@@ -200,9 +200,9 @@ function draw() {
     // using noise to kind of smooth the randomness 
     ypoint += noise(i*0.1, frameCount*0.2)*10*pulled;
 
-    vertex(x + xpoint, height/2 + ypoint);
+    vertex(x + xpoint, height/2 + ypoint); // https://p5js.org/reference/p5/vertex/
   }
-  endShape(CLOSE); // last point connects to first
+  endShape(CLOSE); // last point connects to first https://p5js.org/reference/p5/endShape/
 }
 
   // setCenter(width/2, height/2); 
