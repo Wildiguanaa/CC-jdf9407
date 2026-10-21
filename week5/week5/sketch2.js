@@ -191,7 +191,7 @@ function draw() {
     }
 // checking whether the point faces the direction of the melt pos = hell yea
     let direction = cos(i)*meltx + sin(i)*melty;
-    let pulled = max(0,direction);
+    let pulled = max(0,direction); // pls ignore points that do not face that way
 
     xpoint += meltx*pulled*75;
     ypoint += melty*pulled*75;
