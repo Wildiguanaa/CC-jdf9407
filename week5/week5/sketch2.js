@@ -188,7 +188,7 @@ function draw() {
       let r = eyeballsize/2;
       let xpoint = cos(i)*r; // cos and sin give a point on the circle https://p5js.org/reference/p5/cos/ and 
       let ypoint = sin(i)*r;
-    }
+
 // checking whether the point faces the direction of the melt pos = hell yea
     let direction = cos(i)*meltx + sin(i)*melty;
     let pulled = max(0,direction); // pls ignore points that do not face that way
@@ -201,8 +201,9 @@ function draw() {
     ypoint += noise(i*0.1, frameCount*0.2)*10*pulled;
 
     vertex(x + xpoint, height/2 + ypoint); // https://p5js.org/reference/p5/vertex/
-  }
+    } 
   endShape(CLOSE); // last point connects to first https://p5js.org/reference/p5/endShape/
+ }
 }
 
   // setCenter(width/2, height/2); 
