@@ -159,27 +159,6 @@ function draw() {
 
 
 
-// // eye lids?? or an attempt at them
-
-// push();
-// fill(120,100,120); //just wanted to match background color
-// noStroke();
-
-
-// // top eye lid
-// arc(width/4, height/2.15, eyeballsize, eyeballsize, 180, 360) //https://beta.p5js.org/reference/p5/arc/
-// stroke(1);
-// arc(width/2, height/2, eyeballsize+1, eyeballsize+11, 185, 355) //https://beta.p5js.org/reference/p5/arc/
-// // arc(x, y, w, h, start, stop, [mode], [detail])
-
-// }
-
-//   // attempt at making the pupil and iris move organically with a mouse drag
-//   function mouseDragged() { //https://p5js.org/reference/p5/mouseDragged/ 
-//     drag +=5; // increases time when dragging
-
-//   }
-  
 
 }
   function meltedeyeball(x) {
@@ -268,3 +247,25 @@ function draw() {
     // // // let angle = (2/veinsL) *i;
     // let inRadius = 20;
     // let outRadius = eyeballsize; // veinsL will stay the same size as the eyeball
+
+// // eye lids?? or an attempt at them
+
+// push();
+// fill(120,100,120); //just wanted to match background color
+// noStroke();
+
+
+// // top eye lid
+// arc(width/4, height/2.15, eyeballsize, eyeballsize, 180, 360) //https://beta.p5js.org/reference/p5/arc/
+// stroke(1);
+// arc(width/2, height/2, eyeballsize+1, eyeballsize+11, 185, 355) //https://beta.p5js.org/reference/p5/arc/
+// // arc(x, y, w, h, start, stop, [mode], [detail])
+
+// }
+
+//   // attempt at making the pupil and iris move organically with a mouse drag
+//   function mouseDragged() { //https://p5js.org/reference/p5/mouseDragged/ 
+//     drag +=5; // increases time when dragging
+
+//   }
+  
