@@ -41,16 +41,8 @@ function eyesDesign(pg) {
   pg.ellipse(width/4 + 6, height/2 + 6, eyeballsize); 
   pg.ellipse(width/2 + 6, height/2 + 6, eyeballsize);
 
-  // let currentminuteL = minute();
-  randomSeed(minute());
-  let pupilsizeL = random(10, 35);
-  pupilsizechangeleft = lerp(pupilsizechangeleft, pupilsizeL, 0.05);
 
-  // angleMode(DEGREES); // degrees (0 to 360)
-  randomSeed(minute());
-  let pupilsizeR = random(10, 35);
-  pupilsizechangeright = lerp(pupilsizechangeright, pupilsizeR, 0.05);
- 
+
   // LEFT eye
 
   meltedeyeball(width/4); 
@@ -80,6 +72,10 @@ function eyesDesign(pg) {
   // // pupil dilates/increases diameter by the minute 0-59
   // let currentminuteL = (minute()+ drag%60); //adding drag to the minute (60 seconds)
   
+  // let currentminuteL = minute();
+  randomSeed(minute());
+  let pupilsizeL = random(10, 35);
+  pupilsizechangeleft = lerp(pupilsizechangeleft, pupilsizeL, 0.05);
 
   // mapping seconds (0 to 60 seconds) to rotation degrees (0 to 360 degrees)
   let eyeangleL = map(second(), 0, 60, 0, 360);
@@ -140,7 +136,11 @@ function eyesDesign(pg) {
 
   // pupil and iris movement
   push(); 
-
+  // angleMode(DEGREES); // degrees (0 to 360)
+  randomSeed(minute());
+  let pupilsizeR = random(10, 35);
+  pupilsizechangeright = lerp(pupilsizechangeright, pupilsizeR, 0.05);
+ 
 // mapping seconds (0 to 60 seconds) to rotation degrees (0 to 360 degrees)
   let eyeangleR = map(second(), 0, 60, 0, 360);
  
