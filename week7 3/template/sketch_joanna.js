@@ -12,7 +12,8 @@ let pupilsizechangeleft = 20; //pupil sizes changing slowly
 let pupilsizechangeright = 20; 
 
 function eyesSetup(pg) {
-
+// pg is a separate drawing surface; it doesn't copy the main canvas's settings.  
+// without this line, pg.rotate() would use radians and the iris would spin not how i want it to
     pg.angleMode(DEGREES); 
 }
 function eyesDesign(pg) {
