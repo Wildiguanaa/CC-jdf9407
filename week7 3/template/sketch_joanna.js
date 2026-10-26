@@ -41,9 +41,10 @@ function eyesDesign(pg) {
   pg.ellipse(width/4 + 6, height/2 + 6, eyeballsize); 
   pg.ellipse(width/2 + 6, height/2 + 6, eyeballsize);
 
-
+}
 
   // LEFT eye
+function lefteye(pg,x,countvein, pupilsize) {
 
   meltedeyeball(width/4); 
 
@@ -92,10 +93,11 @@ function eyesDesign(pg) {
   fill("black");
   ellipse(15, 0, pupilsizechangeleft); //(15,0,20)
   pop();
- 
+}
 
   // RIGHT eye
-
+function rightteye(pg,x,countvein, pupilsize) {
+    
   meltedeyeball(width/2);
 
   // // eyeball shape
@@ -103,11 +105,11 @@ function eyesDesign(pg) {
   // ellipse(width/2, height/2, eyeballsize, eyeballsize+stretch);
 
   // eye veins 
-  push(); 
+  pg.push(); 
   // angleMode(DEGREES); // degrees (0 to 360)
-  translate(width/2, height/2); //origin at eye center
-  stroke(100, 20, 20, 50); //transparent red
-  strokeWeight(2); // gives line visible thickness
+  pg.translate(width/2, height/2); //origin at eye center
+  pg.stroke(100, 20, 20, 50); //transparent red
+  pg.strokeWeight(2); // gives line visible thickness
 
   let veinsR = 24; //number of eye veins
   let anglechangeR = 360 / veinsR; // 360 degrees split into 24 veins (15 degrees each)
@@ -117,12 +119,12 @@ function eyesDesign(pg) {
     // let inRadius = 20;
     // let outRadius = eyeballsize/2; // veins will stay the same size as the eyeball
 
-    polarLine(200, 20, 40, eyeballsize/2); 
-    noFill();
-    polarEllipse(2, 20, 26, 40); 
-    rotate(anglechangeR); // Rotate coordinate grid by 15 degrees for the next vein 
+    pg.polarLine(200, 20, 40, eyeballsize/2); 
+    pg.noFill();
+    pg.polarEllipse(2, 20, 26, 40); 
+    pg.rotate(anglechangeR); // Rotate coordinate grid by 15 degrees for the next vein 
     }
-    pop(); // restore
+    pg.pop(); // restore
 
   // pupil dilates/increases diameter by the minute 0-59
   // let currentminuteR = minute();
