@@ -1,14 +1,18 @@
 let pMapper;
-let quad0, quad1; // two
+let quad0; // the quad joanna's eyes will show up on
+let eyespg; // my drawing surface? i think where the eyes get shown on
 
 function setup() {
     createCanvas(windowWidth, windowHeight, WEBGL);
+    angleMode(DEGREES); // the cos() and sin() in joanna's code need degrees
 
     // create mapper object
     pMapper = createProjectionMapper(this);
 
-    quad0 = pMapper.createQuadMap(200,200); // width height
-    quad1 = pMapper.createQuadMap(100,200); 
+    quad0 = pMapper.createQuadMap(440,440); // width height
+    // quad1 = pMapper.createQuadMap(440,440); 
+    eyespg = createGraphics(440,440); 
+    eyesSetup(eyespg); //runs my setup onse
 
     // loads calibration in the "maps" directory
     //pMapper.load("maps/map.json");
