@@ -1,9 +1,5 @@
-function setup() {
-  let canvas = createCanvas(440, 440);
-  rectMode(CENTER);
-  angleMode(DEGREES); // sin/cos/rotate use degrees
-  canvas.parent('week5-sketch'); // do not delete - links to your index.html pages (description)
-}
+// no global setup() or draw() -got rid of that
+// it needs to be one function that receives "p" (the p5 instance)
 
 // let drag = 0; //making this global variable so that if i drag a pupil or iris it might break the timing and act organically in response
 // let melt = 0; // which will be how melted the eyes are with a range of 0-1
