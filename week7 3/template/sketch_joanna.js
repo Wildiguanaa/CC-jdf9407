@@ -137,7 +137,7 @@ function rightteye(pg,x,countvein, pupilsize) {
   // 
 
   // pupil and iris movement
-  push(); 
+  pg.push(); 
   // angleMode(DEGREES); // degrees (0 to 360)
   randomSeed(minute());
   let pupilsizeR = random(10, 35);
@@ -146,27 +146,27 @@ function rightteye(pg,x,countvein, pupilsize) {
 // mapping seconds (0 to 60 seconds) to rotation degrees (0 to 360 degrees)
   let eyeangleR = map(second(), 0, 60, 0, 360);
  
-  translate(width/2 + meltx*15, height/2+melty*15); //origin at eye center
-  rotate(eyeangleR); // rotating the coordinates with time
-  noStroke();
+  pg.translate(width/2 + meltx*15, height/2+melty*15); //origin at eye center
+  pg.rotate(eyeangleR); // rotating the coordinates with time
+  pg.noStroke();
 
    // iris
-  fill("green");
-  ellipse(15, 0, 70); // (15,0,70)
+  pg.fill("green");
+  pg.ellipse(15, 0, 70); // (15,0,70)
 
   // pupil 
-  fill("black");
-  ellipse(15, 0, pupilsizechangeright); //(15,0,20)
-  pop();
+  pg.fill("black");
+  pg.ellipse(15, 0, pupilsizechangeright); //(15,0,20)
+  pg.pop();
 
 
 
 
 }
-  function meltedeyeball(x) {
-    fill(200);
-    noStroke();
-    beginShape(); // will begin to start drawing a custom shape https://p5js.org/reference/p5/beginShape/
+  function meltedeyeball(pg, x) {
+    pg.fill(200);
+    pg.noStroke();
+    pg.beginShape(); // will begin to start drawing a custom shape https://p5js.org/reference/p5/beginShape/
     for (let i=0; i<360; i+=5) { // waling in a circle in 5 degree each part
       let r = eyeballsize/2;
       let xpoint = cos(i)*r; // cos and sin give a point on the circle https://p5js.org/reference/p5/cos/ and 
@@ -183,9 +183,9 @@ function rightteye(pg,x,countvein, pupilsize) {
     // using noise to kind of smooth the randomness 
     ypoint += noise(i*0.1, frameCount*0.2)*10*pulled;
 
-    vertex(x + xpoint, height/2 + ypoint); // https://p5js.org/reference/p5/vertex/
+    pg.vertex(x + xpoint, height/2 + ypoint); // https://p5js.org/reference/p5/vertex/
     } 
-  endShape(CLOSE); // last point connects to first https://p5js.org/reference/p5/endShape/
+  pg.endShape(CLOSE); // last point connects to first https://p5js.org/reference/p5/endShape/
  }
   // setCenter(width/2, height/2); 
   // noFill();
