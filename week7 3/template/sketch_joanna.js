@@ -3,20 +3,23 @@
 
 // let drag = 0; //making this global variable so that if i drag a pupil or iris it might break the timing and act organically in response
 // let melt = 0; // which will be how melted the eyes are with a range of 0-1
+
+// globals are fine as long as they are different per person
 let eyeballsize = 100; //making this global so the melt function can see it
 let meltx = 0; //melt direction: -1 left, 1 right
 let melty = 0.4; //-1 up, 1 down (0.4 = is a small default droop)
 let pupilsizechangeleft = 20; //pupil sizes changing slowly
 let pupilsizechangeright = 20; 
 
-function draw() {
-  background(34,0,0);
-  // fill(0);
-  text("Week 6 Sketch", width/20, height/12);
- 
+function eyesSetup(pg) {
+
+    pg.angleMode(DEGREES); 
+}
+function eyesDesign(pg) {
+    pg.background(34,0,0);
   // eyeball swells/increases diameter by the hour 0-23
-  let currenthour = hour();
-  eyeballsize = map(currenthour, 0, 23, 100, 180); // map(value, low1, high1, low2, high2) or i can think about it as map(value, start1, stop1, start2, stop2, [withinBounds])
+//   let currenthour = hour();
+    eyeballsize = map(hour, 0, 23, 100, 180); // map(value, low1, high1, low2, high2) or i can think about it as map(value, start1, stop1, start2, stop2, [withinBounds])
   
   // the melt goes where
   let reachx = 0;
@@ -31,11 +34,11 @@ function draw() {
   melty = lerp(melty, reachy, 0.05);
   
   //attempt at a shadow for eyeballs
-  noStroke();
-  fill(0,0,0,80);
+  pg.noStroke();
+  pg.fill(0,0,0,80);
   // ellipse(width/$+6,height/2+6, eyeballsize);
-  ellipse(width/4 + 6, height/2 + 6, eyeballsize); 
-  ellipse(width/2 + 6, height/2 + 6, eyeballsize);
+  pg.ellipse(width/4 + 6, height/2 + 6, eyeballsize); 
+  pg.ellipse(width/2 + 6, height/2 + 6, eyeballsize);
 
 
 
