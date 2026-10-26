@@ -53,23 +53,23 @@ function lefteye(pg,x,countvein, pupilsize) {
   // ellipse(width/4, height/2, eyeballsize, eyeballsize+stretch);
 
   // eye veins 
-  push(); 
+  pg.push(); 
   // angleMode(DEGREES); // degrees (0 to 360)
-  translate(width/4, height/2); //origin at eye center
-  stroke(100, 20, 20, 50); //transparent red
-  strokeWeight(2); // gives line visible thickness
+  pg.translate(width/4, height/2); //origin at eye center
+  pg.stroke(100, 20, 20, 50); //transparent red
+  pg.strokeWeight(2); // gives line visible thickness
   let veinsL = 22; //number of eye veins
   let anglechangeL = 360 / veinsL; // 360 degrees split into 24 veins (15 degrees each)
   for (let i=0; i<veinsL; i++) {
-    polarLine(200, 20, 40, eyeballsize/2); 
-    noFill();
-    polarEllipse(2, 20, 26, 40); 
-    rotate(anglechangeL); // Rotate coordinate grid by 15 degrees for the next vein  
+    pg.polarLine(200, 20, 40, eyeballsize/2); 
+    pg.noFill();
+    pg.polarEllipse(2, 20, 26, 40); 
+    pg.rotate(anglechangeL); // Rotate coordinate grid by 15 degrees for the next vein  
     }
-    pop(); // restore
+    pg.pop(); // restore
   
   // pupil and iris movement
-  push(); 
+  pg.push(); 
   // // pupil dilates/increases diameter by the minute 0-59
   // let currentminuteL = (minute()+ drag%60); //adding drag to the minute (60 seconds)
   
@@ -82,17 +82,17 @@ function lefteye(pg,x,countvein, pupilsize) {
   let eyeangleL = map(second(), 0, 60, 0, 360);
 
   // angleMode(DEGREES); // degrees (0 to 360)
-  translate(width/4 + meltx*15, height/2+melty*15); // iris sliding towards melting
-  rotate(eyeangleL); // rotating the coordinates with time
-  noStroke();
+  pg.translate(width/4 + meltx*15, height/2+melty*15); // iris sliding towards melting
+  pg.rotate(eyeangleL); // rotating the coordinates with time
+  pg.noStroke();
   // iris
-  fill("green");
-  ellipse(15, 0, 70); // (15,0,70)
+  pg.fill("green");
+  pg.ellipse(15, 0, 70); // (15,0,70)
 
   // pupil 
-  fill("black");
-  ellipse(15, 0, pupilsizechangeleft); //(15,0,20)
-  pop();
+  pg.fill("black");
+  pg.ellipse(15, 0, pupilsizechangeleft); //(15,0,20)
+  pg.pop();
 }
 
   // RIGHT eye
