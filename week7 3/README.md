@@ -13,3 +13,5 @@ Written notes by Joanna
     - https://p5js.org/reference/p5/p5/
     - https://github.com/processing/p5.js/wiki/Global-and-instance-mode
     - https://github.com/processing/p5.js/wiki/p5.js-overview (some pages like this one are super long, so just command f "instance" or "instance mode" for relevant results)
+- that same professor gave me a brief explanation of createGraphics() so I decided to look more into that
+    - https://p5js.org/reference/p5/createGraphics/ 
