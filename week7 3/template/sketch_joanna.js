@@ -18,8 +18,8 @@ function eyesSetup(pg) {
 function eyesDesign(pg) {
     pg.background(34,0,0);
   // eyeball swells/increases diameter by the hour 0-23
-//   let currenthour = hour();
-    eyeballsize = map(hour, 0, 23, 100, 180); // map(value, low1, high1, low2, high2) or i can think about it as map(value, start1, stop1, start2, stop2, [withinBounds])
+    let currenthour = hour();
+    eyeballsize = map(currenthour, 0, 23, 100, 180); // map(value, low1, high1, low2, high2) or i can think about it as map(value, start1, stop1, start2, stop2, [withinBounds])
   
   // the melt goes where
   let reachx = 0;
