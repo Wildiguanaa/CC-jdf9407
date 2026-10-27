@@ -18,12 +18,19 @@ function setup() {
     //pMapper.load("maps/map.json");
 }
 
+function showeyes(pg) { // pg = the quad's surface
+    pg.image(eyespg, 0, 0); // place my animated eyes onto it, top-left corner
+}
+
 function draw() {
     background(0);
 
-    quad0.display("red");
-    quad1.display("magenta");
-    //quad0.displaySketch(yourNameTexture);
+    eyesDesign(eyespg); //put eyes on the surface
+
+
+    // quad0.display("red");
+    // quad1.display("magenta");
+    quad0.displaySketch(showeyes);
 }
 
 function keyPressed() {
