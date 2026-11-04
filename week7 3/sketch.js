@@ -30,8 +30,10 @@ function setup(){
 }
 
 function draw(){
+    background(0);   
+    drawAnimation();               // paints onto pg   
 
-    pg.ellipse(mouseX, mouseY, 80)
+    // pg.ellipse(mouseX, mouseY, 80)
 
     quadMap.displayTexture(pg);
     // image(pg, 0,0)
