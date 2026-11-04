@@ -17,7 +17,7 @@ function setup(){
   // 
   pg = createGraphics(400, 400);   
   pg.angleMode(DEGREES);         // for pg.rotate   
-  pg.background(34, 0, 0);
+  // pg.background(34, 0, 0);
 
     // createCanvas(600,600,WEBGL)
     // background(100)
@@ -42,10 +42,10 @@ function draw(){
 
 
 function drawAnimation() {   
-  pg.background(34, 0, 0);   
+  pg.background(0, 0, 0);   
   pg.noStroke();   
   pg.fill(255);   
-  pg.text("Week 6 Sketch", pg.width / 20, pg.height / 12);    // eyeball swells by the hour   
+  // pg.text("Week 6 Sketch", pg.width / 20, pg.height / 12);    // eyeball swells by the hour   
   eyeballsize = map(hour(), 0, 23, 100, 180);    // where the melt goes (mouse used directly, like your mapper template)   
   
   let reachx = 0;   
