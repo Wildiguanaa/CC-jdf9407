@@ -10,10 +10,19 @@ let pupilsizechangeleft = 20;
 let pupilsizechangeright = 20;
 
 function setup(){
-    createCanvas(600,600,WEBGL)
-    background(100)
-    pg =createGraphics(400, 400)
-    pg.background(0)
+
+  let canvas = createCanvas(600, 600, WEBGL);   
+  canvas.parent('week5-sketch');   
+  angleMode(DEGREES);            // for cos/sin in meltedeyeball    
+  // 
+  pg = createGraphics(400, 400);   
+  pg.angleMode(DEGREES);         // for pg.rotate   
+  pg.background(34, 0, 0);
+
+    // createCanvas(600,600,WEBGL)
+    // background(100)
+    // pg =createGraphics(400, 400)
+    // pg.background(0)
     pMapper = createProjectionMapper(this);
 
     quadMap = pMapper.createQuadMap(400, 400);
