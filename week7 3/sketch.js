@@ -1,6 +1,13 @@
 
-let pg, pg2, quadMap
-let pMapper;
+let pg, quadMap, pMapper;
+// let pMapper;
+let calibrating = false;
+
+let eyeballsize = 100; 
+let meltx = 0; 
+let melty = 0.4; 
+let pupilsizechangeleft = 20; 
+let pupilsizechangeright = 20;
 
 function setup(){
     createCanvas(600,600,WEBGL)
