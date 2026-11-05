@@ -1,14 +1,15 @@
-let lastSecond = -1;         
-let secondStart = 0; 
+let zezolastSecond = -1;         
+let zezosecondStart = 0; 
 
-function setup() {
-  let canvas = createCanvas(600, 600);
+function zezosetup() {
+  // let canvas = createCanvas(600, 600);
   pg.angleMode(DEGREES);
-  canvas.parent('week5-sketch'); // do not delete - links to your index.html pages (description)
+  // canvas.parent('week5-sketch'); // do not delete - links to your index.html pages (description)
 }
 
-function draw() {
+function zezodraw() {
 
+  pg.push();
   pg.background(10, 10, 30);
 
   let h = hour();
@@ -31,14 +32,14 @@ function draw() {
     b = 70;
   }
 
-  pg.translate(width / 2, height / 2);
-  DrawRing(70, 90, 14, hourB, hourF, r, g, b);
-  DrawRing(180, 100, 40, minB, minF, r, g, b);
-  drawSecs(s, r, g, b);
-  
+  pg.translate(pg.width / 2, pg.height / 2);
+  zezoDrawRing(pg, 70, 90, 14, hourB, hourF, r, g, b);
+  zezoDrawRing(pg,180, 100, 40, minB, minF, r, g, b);
+  zezodrawSecs(pg,s, r, g, b);
+  pg.pop();
 }
 
-function DrawRing(radius ,len, thick, lit, filla, r, g, b ) {
+function zezoDrawRing(pg,radius ,len, thick, lit, filla, r, g, b ) {
 
   for (let i = 0; i < 12; i++) {
     pg.push();
@@ -60,10 +61,10 @@ function DrawRing(radius ,len, thick, lit, filla, r, g, b ) {
   }
 }
 
-function drawSecs(s, r, g, b) {
+function zezodrawSecs(s, r, g, b) {
   if (s != lastSecond) {                 
-    lastSecond = s;                      
-    secondStart = frameCount;            
+    zezolastSecond = s;                      
+    zezosecondStart = frameCount;            
   }
   let frac = (frameCount - secondStart) / 60; 
   if (frac > 1) {                        
