@@ -1,16 +1,15 @@
-
 let lastSecond = -1;         
 let secondStart = 0; 
 
 function setup() {
   let canvas = createCanvas(600, 600);
-  angleMode(DEGREES);
+  pg.angleMode(DEGREES);
   canvas.parent('week5-sketch'); // do not delete - links to your index.html pages (description)
 }
 
 function draw() {
 
-  background(10, 10, 30);
+  pg.background(10, 10, 30);
 
   let h = hour();
   let m = minute();
@@ -32,7 +31,7 @@ function draw() {
     b = 70;
   }
 
-  translate(width / 2, height / 2);
+  pg.translate(width / 2, height / 2);
   DrawRing(70, 90, 14, hourB, hourF, r, g, b);
   DrawRing(180, 100, 40, minB, minF, r, g, b);
   drawSecs(s, r, g, b);
@@ -42,21 +41,21 @@ function draw() {
 function DrawRing(radius ,len, thick, lit, filla, r, g, b ) {
 
   for (let i = 0; i < 12; i++) {
-    push();
-    rotate(i * 30 - 90);
+    pg.push();
+    pg.rotate(i * 30 - 90);
 
-    stroke(200, 210, 255, 100);
-    strokeWeight(1);
-    fill(255, 255, 255, 20);
-    rect(radius, - thick / 2, len, thick);
+    pg.stroke(200, 210, 255, 100);
+    pg.strokeWeight(1);
+    pg.fill(255, 255, 255, 20);
+    pg.rect(radius, - thick / 2, len, thick);
 
     if (i == lit) {
-      noStroke();
-      fill(r, g, b, 210);
-      rect(radius, - thick / 2, len * filla,thick);
+      pg.noStroke();
+      pg.fill(r, g, b, 210);
+      pg.rect(radius, - thick / 2, len * filla,thick);
     }
 
-  pop();
+  pg.pop();
 
   }
 }
@@ -75,13 +74,13 @@ function drawSecs(s, r, g, b) {
   let x = cos(a) * 50;                   
   let y = sin(a) * 50;
 
-  noFill();                              
-  stroke(200, 210, 255, 40);
-  circle(0, 0, 100);
+  pg.noFill();                              
+  pg.stroke(200, 210, 255, 40);
+  pg.circle(0, 0, 100);
 
-  noStroke();                            
-  fill(r, g, b, 40);                     
-  circle(x, y, 26);
-  fill(255, 255, 255);                   
-  circle(x, y, 5);
+  pg.noStroke();                            
+  pg.fill(r, g, b, 40);                     
+  pg.circle(x, y, 26);
+  pg.fill(255, 255, 255);                   
+  pg.circle(x, y, 5);
 }
