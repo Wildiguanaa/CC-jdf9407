@@ -1,5 +1,7 @@
 
-let pg, quadMap, pMapper;
+let pMapper;
+
+let pg, quadMap;
 // let pMapper;
 let calibrating = false;
 
