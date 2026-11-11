@@ -29,8 +29,14 @@ async function setup() {
     //https://p5js.org/reference/p5.sound/p5.Amplitude/
     amp = new p5.Amplitude(); 
     lanternbuzz.connect(amp);
-    
-    amp.setInput(lanternbuzz);
-    fft = new p5.FFT(); fft.setInput(lanternbuzz);
+    // amp.setInput(lanternbuzz);
+
+    //https://p5js.org/reference/p5.sound/p5.FFT/
+    fft = new p5.FFT(); 
+    // fft.setInput(lanternbuzz);
+    lanternbuzz.connect(fft);
+
     readytostart = true; //this comes before my draw function
+
+    
 }
