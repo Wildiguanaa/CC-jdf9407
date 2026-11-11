@@ -10,10 +10,10 @@ function setup() {
 }
 
 function mousePressed(){
-  
+
 }
 
 function draw() {
-  background(255,0,0);
-  text("Week 5 Sketch", width/2, height/2);
+  background(225,30,0);
+  text("Heartbeat", width/2, height/2);
 }
