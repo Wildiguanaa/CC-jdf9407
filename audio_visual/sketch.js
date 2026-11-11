@@ -9,18 +9,18 @@ let bugsting; //sting noise
 let amp; //how loud the noise is (measures it)
 let fft; //measuring frequency of the pitch
 
-let readytostart = false;
-let starting = false;
-let stungtime = -80;
-const 1x = 350; //where im trying to put the light in my drawing
-const 1y = 350;
-
+let readytostart = false; 
+let starting = false; //clicking to start audio
+let stungtime = -80; //the sting noise happens 
+const lightx = 350; //where im trying to put the light in my drawing
+const lighty = 350;
+const load = 
 
 async function setup() {
     // some links i like for async: https://www.w3schools.com/js/js_async.asp 
     createCanvas(750,750);
-    noCursor(); //gets rid of cursor
-    sketch= await load(loadImage, "lantern.png");
+    noCursor(); //gets rid of cursor because im having a fly replace it 
+    sketch= await load(loadImage, "lantern.png"); //for load image and sound: https://p5js.org/reference/p5/async_await/
     lanternbuzz= await load(loadSound, "");
     bugsting= await load(loadSound, "");
 
