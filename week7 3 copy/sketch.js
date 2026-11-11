@@ -13,8 +13,10 @@ let pupilsizechangeright = 20;
 
 function setup(){
 
-  let canvas = createCanvas(600, 600, WEBGL);   
+  let canvas = createCanvas(windowWidth, windowHeight, WEBGL);   
   canvas.parent('week5-sketch');   
+
+
   angleMode(DEGREES);            // for cos/sin in meltedeyeball    
   // 
   pg = createGraphics(400, 400);   
