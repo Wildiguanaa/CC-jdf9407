@@ -1,15 +1,31 @@
-let zezolastSecond = -1;         
-let zezosecondStart = 0; 
 
-function zezosetup() {
-  // let canvas = createCanvas(600, 600);
-  pg.angleMode(DEGREES);
-  // canvas.parent('week5-sketch'); // do not delete - links to your index.html pages (description)
+let lastSecond = -1;         
+let secondStart = 0; 
+
+function setup() {
+  console.log("test")
+  createCanvas(600, 600);
+  angleMode(DEGREES);
+
+      createCanvas(windowWidth, windowHeight, WEBGL);
+
+    // create mapper object
+    pMapper = createProjectionMapper(this);
+    quad0 = pMapper.createQuadMap(600,600); // width height
+
+    // loads calibration in the "maps" directory
+    //pMapper.load("maps/map.json");
+}
+function draw() {
+background("black")
+    //quad0.display("red");
+    //quad1.display("magenta");
+  quad0.displaySketch(clockSketch);
+
 }
 
-function zezodraw() {
+function clockSketch(pg) {
 
-  pg.push();
   pg.background(10, 10, 30);
 
   let h = hour();
@@ -32,14 +48,14 @@ function zezodraw() {
     b = 70;
   }
 
-  pg.translate(pg.width / 2, pg.height / 2);
-  zezoDrawRing(pg, 70, 90, 14, hourB, hourF, r, g, b);
-  zezoDrawRing(pg,180, 100, 40, minB, minF, r, g, b);
-  zezodrawSecs(pg,s, r, g, b);
-  pg.pop();
+  pg.translate(width / 2, height / 2);
+  DrawRing(pg, 70, 90, 14, hourB, hourF, r, g, b);
+  DrawRing(pg, 180, 100, 40, minB, minF, r, g, b);
+  drawSecs(pg, s, r, g, b);
+  
 }
 
-function zezoDrawRing(pg,radius ,len, thick, lit, filla, r, g, b ) {
+function DrawRing(pg, radius ,len, thick, lit, filla, r, g, b ) {
 
   for (let i = 0; i < 12; i++) {
     pg.push();
@@ -51,9 +67,9 @@ function zezoDrawRing(pg,radius ,len, thick, lit, filla, r, g, b ) {
     pg.rect(radius, - thick / 2, len, thick);
 
     if (i == lit) {
-      pg.noStroke();
+      pg.stroke();
       pg.fill(r, g, b, 210);
-      pg.rect(radius, - thick / 2, len * filla,thick);
+        pg.rect(radius, - thick / 2, len * filla,thick);
     }
 
   pg.pop();
@@ -61,10 +77,10 @@ function zezoDrawRing(pg,radius ,len, thick, lit, filla, r, g, b ) {
   }
 }
 
-function zezodrawSecs(s, r, g, b) {
+function drawSecs(pg, s, r, g, b) {
   if (s != lastSecond) {                 
-    zezolastSecond = s;                      
-    zezosecondStart = frameCount;            
+    lastSecond = s;                      
+    secondStart = frameCount;            
   }
   let frac = (frameCount - secondStart) / 60; 
   if (frac > 1) {                        
@@ -84,4 +100,27 @@ function zezodrawSecs(s, r, g, b) {
   pg.circle(x, y, 26);
   pg.fill(255, 255, 255);                   
   pg.circle(x, y, 5);
+}
+
+function keyPressed() {
+    switch (key) {
+        case "c":
+            pMapper.toggleCalibration();
+            break;
+        case "f":
+            let fs = fullscreen();
+            fullscreen(!fs);
+            break;
+        case "l":
+            pMapper.load("maps/map.json");
+            break;
+
+        case "s":
+            pMapper.save("map.json");
+            break;
+    }
+}
+
+function windowResized() {
+    resizeCanvas(windowWidth, windowHeight);
 }
