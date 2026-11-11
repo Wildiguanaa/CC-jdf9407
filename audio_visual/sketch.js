@@ -38,5 +38,16 @@ async function setup() {
 
     readytostart = true; //this comes before my draw function
 
+}
+
+function draw() {
+
+    if(readytostart) return;
+    image(sketch,0,0,width,height);
+
+    let stung = millis() - stungtime <1455;
+
+    let nearness = map(dist(mouseX,mouseY, lightx, lighty), 500, 0,0, 1, true);
+    if (starting) lanternbuzz.setVolume(stung ? 0: nearness);
     
 }
