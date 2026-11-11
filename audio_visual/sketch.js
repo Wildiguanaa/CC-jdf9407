@@ -26,12 +26,12 @@ async function setup() {
     lanternbuzz= await load(loadSound, "media/buzzinglightsound.wav");
     bugsting= await load(loadSound, "media/bugzap.wav");
 
-    //https://p5js.org/reference/p5.sound/p5.Amplitude/
+    //measuring amplitude while using pr.amplitude https://p5js.org/reference/p5.sound/p5.Amplitude/
     amp = new p5.Amplitude(); 
-    lanternbuzz.connect(amp);
+    lanternbuzz.connect(amp); //connect() makes sure the measure is directed at the buzz sound
     // amp.setInput(lanternbuzz);
 
-    //https://p5js.org/reference/p5.sound/p5.FFT/
+    //measures pitch/frequency with p5.fft https://p5js.org/reference/p5.sound/p5.FFT/
     fft = new p5.FFT(); 
     // fft.setInput(lanternbuzz);
     lanternbuzz.connect(fft);
@@ -43,11 +43,13 @@ async function setup() {
 function draw() {
 
     if(readytostart) return;
+    //lanterndrawing is background
     image(sketch,0,0,width,height);
 
+    //millis()= milliseconds since the sketch began
     let stung = millis() - stungtime <1455;
 
     let nearness = map(dist(mouseX,mouseY, lightx, lighty), 500, 0,0, 1, true);
     if (starting) lanternbuzz.setVolume(stung ? 0: nearness);
-    
+
 }
