@@ -20,9 +20,9 @@ async function setup() {
     // some links i like for async: https://www.w3schools.com/js/js_async.asp 
     createCanvas(750,750);
     noCursor(); //gets rid of cursor because im having a fly replace it 
-    sketch= await load(loadImage, "lantern.png"); //for load image and sound: https://p5js.org/reference/p5/async_await/
-    lanternbuzz= await load(loadSound, "");
-    bugsting= await load(loadSound, "");
+    sketch= await load(loadImage, "media/lantern.png"); //for load image and sound: https://p5js.org/reference/p5/async_await/
+    lanternbuzz= await load(loadSound, "media/buzzinglightsound.wav");
+    bugsting= await load(loadSound, "media/bugzap.wav");
 
     amp = new print.Amplitude(); amp.setInput(lanternbuzz);
     fft = new p5.FFT(); fft.setInput(lanternbuzz);
